@@ -1,0 +1,91 @@
+﻿@model Crud_MVC_Web_Application.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    /* Custom styles for textboxes */
+    .form-control {
+        border-radius: 10px;
+        border: 2px solid #6c757d;
+        font-size: 1.2rem;
+        color: #495057;
+        background-color: #f8f9fa;
+        padding: 10px;
+    }
+
+    /* Custom styles for buttons */
+    .btn-primary {
+        border-radius: 10px;
+        background-color: #007bff;
+        border-color: #007bff;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+
+    .btn-secondary {
+        border-radius: 10px;
+        background-color: #6c757d;
+        border-color: #6c757d;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+</style>
+
+<h1 style="font-family: Arial, sans-serif;">Create Product</h1>
+<hr />
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Id" class="form-label" style="font-family: Arial, sans-serif;">Product ID</label>
+                    <input asp-for="Id" class="form-control" id="productId" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label" style="font-family: Arial, sans-serif;">Product Name</label>
+                    <input asp-for="Name" class="form-control" id="productName" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label" style="font-family: Arial, sans-serif;">Description</label>
+                    <textarea asp-for="Description" class="form-control" id="productDescription" rows="3"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Category" class="form-label" style="font-family: Arial, sans-serif;">Category</label>
+                    <input asp-for="Category" class="form-control" id="productCategory" />
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Price" class="form-label" style="font-family: Arial, sans-serif;">Price</label>
+                    <input asp-for="Price" class="form-control" id="productPrice" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="d-grid">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
